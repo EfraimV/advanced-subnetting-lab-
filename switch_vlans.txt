@@ -1,0 +1,20 @@
+Setup VLAN for Cisco Catalyst 2960
+enable
+configure terminal
+!
+vlan 10
+ name SUBNET_1
+!
+vlan 20
+ name SUBNET_2
+!
+interface range FastEthernet0/1-12
+ switchport mode access
+ switchport access vlan 10
+!
+interface range FastEthernet0/13-24
+ switchport mode access
+ switchport access vlan 20
+!
+end
+wr mem
