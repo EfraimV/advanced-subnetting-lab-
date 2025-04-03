@@ -1,0 +1,16 @@
+---
+- name: Deploy Network Configuration
+  hosts: network_devices
+  gather_facts: false
+  connection: ansible.netcommon.network_cli
+
+  tasks:
+    - name: Push Router Config
+      ansible.netcommon.cli_config:
+        config: "{{ lookup('template', 'templates/router.j2') }}"
+        backup: yes
+
+    - name: Push Switch Config
+      ansible.netcommon.cli_config:
+        config: "{{ lookup('template', 'templates/switch.j2') }}"
+      when: "'switch' in inventory_hostname"
