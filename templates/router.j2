@@ -1,0 +1,9 @@
+{% raw %}
+hostname {{ device_hostname }}
+!
+interface GigabitEthernet0/0
+ ip address {{ subnet1_gateway }} {{ subnet1_mask }}
+!
+router ospf 1
+ network {{ ospf_network }} {{ ospf_wildcard }} area 0
+{% endraw %}
