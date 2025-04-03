@@ -1,0 +1,21 @@
+Router config Cisco (for Subnet 1 and Subnet 2)
+enable
+configure terminal
+!
+hostname SUBNET_LAB_ROUTER
+!
+interface GigabitEthernet0/0
+ description Subnet 1 (192.168.1.0/26)
+ ip address 192.168.1.1 255.255.255.192
+ no shutdown
+!
+interface GigabitEthernet0/1
+ description Subnet 2 (192.168.1.64/26)
+ ip address 192.168.1.65 255.255.255.192
+ no shutdown
+!
+router ospf 1
+ network 192.168.1.0 0.0.0.255 area 0
+!
+end
+wr mem
