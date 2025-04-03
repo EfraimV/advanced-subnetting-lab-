@@ -1,0 +1,4 @@
+subnet1_gateway: 192.168.1.1
+subnet1_mask: 255.255.255.192
+ospf_network: 192.168.1.0
+ospf_wildcard: 0.0.0.255
